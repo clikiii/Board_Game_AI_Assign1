@@ -210,6 +210,18 @@ def gameLoop(screen, p1, p2):
                 grid.update(x, y, playerTurn.get_symbole())
                 gui.drawSymbole(screen, (x,y), playerTurn.get_symbole())
                 print("Player2 (Red,Python), move is:",x,y)
+            elif p2_language=="Random":
+                tic = time.time()
+                move = playerTurn.get_move_ori(grid.grid, playerTurn.get_symbole())
+                x, y = move[0], move[1]
+                toc = time.time()
+                # Check if the cell is available
+                if not grid.isMoveAllowed(x, y, playerTurn.get_symbole()):
+                    print("Illegal move, game over. Player1 wins.")
+                    return "-4"
+                grid.update(x, y, playerTurn.get_symbole())
+                gui.drawSymbole(screen, (x,y), playerTurn.get_symbole())
+                print("Player2 (Red,Python), move is:",x,y)
             else:
                 # Get the human player input (just for demonstrate)
                 tic = time.time()
@@ -295,6 +307,18 @@ def gameLoop(screen, p1, p2):
                 grid.update(x, y, playerTurn.get_symbole())
                 gui.drawSymbole(screen, (x,y), playerTurn.get_symbole())
                 print("Player1 (Green,PYTHON), move is:",x,y)
+            elif p2_language=="Random":
+                tic = time.time()
+                move = playerTurn.get_move_ori(grid.grid, playerTurn.get_symbole())
+                x, y = move[0], move[1]
+                toc = time.time()
+                # Check if the cell is available
+                if not grid.isMoveAllowed(x, y, playerTurn.get_symbole()):
+                    print("Illegal move, game over. Player1 wins.")
+                    return "-4"
+                grid.update(x, y, playerTurn.get_symbole())
+                gui.drawSymbole(screen, (x,y), playerTurn.get_symbole())
+                print("Player2 (Red,Python), move is:",x,y)
             else:
                 # Get the human player input
                 tic = time.time()
